@@ -1,0 +1,42 @@
+1. What is a commit in Git?
+A commit in Git represents a snapshot of your repository at a particular moment. It logs the modifications made to files and directories within the repository, enabling you to monitor the evolution of your project.
+
+2. What is a branch in Git?
+A branch in Git is an independent development path. It allows you to work on new features or
+bug fixes without affecting the main codebase. Once the work is finished, branches can be
+merged back into the main branch.
+
+3. What is a pull request in GitHub?
+A pull request in GitHub is a method of suggesting changes to a repository. 
+It alerts others to the updates you've made to a branch and serves as a platform 
+for reviewing and discussing the changes before they are integrated into the main codebase.
+
+4. How do you initialize a new Git repository?
+To initialize a new Git repository, you can use the following command:
+git init
+This command sets up a new Git repository in your current directory,
+allowing you to start tracking your project's files. After running this command, 
+you can begin adding files to the repository and making commits to track changes.
+
+5. How do you clone a repository from GitHub?
+To clone a repository from GitHub to your local machine, follow these steps:
+Go to the repository you want to clone on GitHub.
+Click the "Code" button and copy the repository’s URL.
+In your terminal or command line, use the following command to clone the repository:
+git clone <repository-URL>
+This will create a local copy of the repository on your machine.
+
+6. How do you stage changes for a commit?
+To stage changes in Git before committing, follow these steps:
+Use the git add command to stage files you want to include in your next commit.
+You can add specific files or all changed files:
+git add .
+This prepares the files for the next commit. After staging, you can commit the changes to your local repository.
+
+7. How do you push changes to a remote repository?
+To push your local commits to a remote repository (e.g., GitHub), use the git push command. Here's how:
+Make sure you're on the branch you want to push (e.g., main, feature-branch).
+Use the following command to push your changes to the remote repository:
+git push
+For example, to push changes to the main branch:
+git push origin main
