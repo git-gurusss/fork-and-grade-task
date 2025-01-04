@@ -1,5 +1,5 @@
 1. A commit is a snapshot of changes at a particular time in the repo.
-2. A branch in Git is an independent line of development that allows you to work on different versions of a project
+2. A branch is an independent line of development that allows you to work on different versions of a project
 3. A pull request is a request to merge changes from one branch to another.
 4. git init command
 5. git clone [repo-url] command
