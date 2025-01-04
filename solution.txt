@@ -1,0 +1,13 @@
+1.Git commit: a snapshot of changes in the repository.
+
+2.Git branch: an independent line of development that allows different people to work on different features or tasks without affecting the main codebase.
+
+3.Git pull request: a pull request is request to merge changes in a branch to another(usually the main branch)
+
+4.Initialize a new git repository: run the command 'git init' after navigating to your project's directory in the terminal
+
+5.Clone a repository from github: copy the repository url from github and run the command 'git clone <repository url>' in the directory where you want the repository to be in terminal.
+
+6.Stage changes for commit: run the command 'git add <filename>' or 'git add .' to stage all files for commit.
+
+7.Push changes to a remote repository: run the command 'git push origin <branch>.
