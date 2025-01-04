@@ -1,0 +1,39 @@
+1. What is a commit in Git?
+A commit in Git is a snapshot of your project's changes at a specific point in time. It's like saving a version of your work. Each commit has a unique identifier (hash), a message describing the changes, and metadata about the author and timestamp. Commits are used to track and manage changes to your files over time.
+
+2. What is a branch in Git?
+A branch in Git is a separate line of development. It allows you to work on features, bug fixes, or experiments without affecting the main codebase. The default branch is usually called main or master. You can create and switch between branches, then merge changes back into the main branch when ready.
+
+3. What is a pull request in GitHub?
+A pull request (PR) in GitHub is a way to propose changes to a repository. It lets team members review, discuss, and approve the changes before merging them into a branch (usually the main branch). Pull requests are essential for collaboration, ensuring code quality, and facilitating code reviews.
+
+4. How do you initialize a new Git repository?
+You can initialize a new Git repository with the following command:
+git init
+This creates a new .git folder in your directory, which Git uses to track changes.
+
+5. How do you clone a repository from GitHub?
+To clone a repository from GitHub, use:
+
+git clone <repository-URL>
+For example:
+
+git clone https://github.com/user/repo.git
+This creates a local copy of the repository on your computer.
+
+6. How do you stage changes for a commit?
+To stage changes, use:
+git add <file>
+To stage all changes:
+git add .
+Staging adds the changes to the "staging area," preparing them for the next commit.
+
+7. How do you push changes to a remote repository?
+To push changes to a remote repository, use:
+
+
+git push <remote> <branch>
+For example, if you are pushing to the origin remote on the main branch:
+
+git push origin main
+This uploads your local commits to the remote repository on GitHub or another Git hosting service.
