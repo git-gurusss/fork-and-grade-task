@@ -1,0 +1,7 @@
+Commit in git is when you add new changes to a file and the reason for the changes.
+A branch in git is like a different version of the main branch.
+A pull request is when you're making changes from one branch to the other in repos.
+We initialize a new git repository using the command line "git init", then Enter.
+To clone repository from github, you can use git bash or your terminal by using the command line "git clone + the URL of the repository you want to clone", then Enter.
+You can stage change for a commit by using the the command line "git add + the file you want to stage" or you can use "git add ." to stage all changes.
+To push changes to a remote repo, you first need to stage and commit the changes with a commit message. The next thing is to use the command line "git push -u origin main".
