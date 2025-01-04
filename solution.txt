@@ -1,0 +1,44 @@
+What is a commit in Git?
+
+A commit in Git is a snapshot of your repository at a specific point in time. It represents a set of changes that have been made to the files in your project. Each commit has a unique identifier, known as a SHA (Secure Hash Algorithm), which allows you to track and reference the specific changes made in that commit.
+
+
+What is a branch in Git?
+
+A branch in Git is a lightweight, movable pointer to a commit. It allows you to diverge from the main line of development and continue to work without affecting that main line. Branches are used to develop features, fix bugs, or experiment with new ideas in isolation from the main codebase.
+By using branches effectively, you can keep your project's history clean and organized, making it easier to manage and understand the development process.
+
+What is a pull request in GitHub?
+
+A pull request in GitHub is a feature that facilitates collaboration by allowing developers to notify team members about changes they have made in a branch of a repository. It is a request to merge these changes into another branch, typically the main branch. Pull requests provide a platform for discussing the proposed changes before they are integrated into the main codebase.
+When you create a pull request, you can include a description of the changes, the purpose behind them, and any other relevant information. Team members can then review the changes, leave comments, ask questions, and suggest modifications. This review process helps ensure that the code meets the project's standards and does not introduce any bugs or issues.
+
+
+
+How do you initialize a new Git repository?
+
+You can use the `git init` command to initialize a new Git repository. This command sets up the necessary files and directories that Git uses to track changes in your project.
+1. Open your terminal or command prompt.
+2. Navigate to the directory where you want to create the repository, or create a new directory and navigate into it using the `cd` command.
+3. Run the command `git init`.
+
+
+How do you clone a repository from GitHub?
+
+1. Open your terminal or command prompt.
+2. Navigate to the directory where you want to store the cloned repository using the `cd` command.
+3. Obtain the URL of the repository you want to clone from GitHub. 
+4. Run the command `git clone <repository-url>`, replacing `<repository-url>` with the actual URL of the repository.
+
+How do you stage changes for a commit?
+
+1. Open your terminal or command prompt.
+2. Navigate to your project directory using the `cd` command.
+3. Make changes to your files as needed.
+4. Use the `git add .` command to stage all changes. 
+
+How do you push changes to a remote repository?
+
+1. Open your terminal or command prompt.
+2. Ensure that you have committed your changes locally using the `git commit` command.
+3. Use the `git push` command to upload your changes to the remote repository. 
