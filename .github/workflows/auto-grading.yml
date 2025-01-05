@@ -28,14 +28,7 @@ jobs:
           exit 1
         fi
 
-    - name: Debug - Display Expected Answers
-      run: |
-        echo "📊 Expected Answers:"
-        echo $EXPECTED_ANSWERS | jq -r '.[]'
-
     - name: Validate Solution
-      env:
-        EXPECTED_ANSWERS: ${{ secrets.EXPECTED_ANSWERS }}
       run: |
         # Ensure solution.txt exists
         if [ ! -f "solution.txt" ]; then
@@ -43,14 +36,22 @@ jobs:
           exit 1
         fi
 
-        # Read expected answers from secret
-        expected_answers=$(echo "$EXPECTED_ANSWERS" | jq -r '.[]')
+        # Define expected answers directly in the script
+        expected_answers=(
+          "A commit is a snapshot of changes in the repository."
+          "A branch is a separate line of development in the repository."
+          "A pull request is a request to merge changes from one branch to another."
+          "You initialize a new Git repository with 'git init'."
+          "You clone a repository from GitHub with 'git clone <repository_url>'."
+          "You stage changes for a commit with 'git add <file>'."
+          "You push changes to a remote repository with 'git push'."
+        )
 
         # Read answers from solution.txt
         IFS=$'\n' read -d '' -r -a answers < solution.txt
 
         # Ensure the number of answers matches
-        expected_count=$(echo "$expected_answers" | wc -l)
+        expected_count=${#expected_answers[@]}
         actual_count=${#answers[@]}
 
         if [ "$expected_count" -ne "$actual_count" ]; then
@@ -62,7 +63,7 @@ jobs:
 
         # Validate answers
         index=0
-        for expected_answer in $expected_answers; do
+        for expected_answer in "${expected_answers[@]}"; do
           # Normalize strings (remove extra spaces, convert to lowercase for comparison)
           normalized_expected=$(echo "$expected_answer" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
           normalized_actual=$(echo "${answers[$index]}" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
