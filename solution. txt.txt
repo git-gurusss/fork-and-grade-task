@@ -1,0 +1,67 @@
+
+
+
+
+1. What is a commit in Git?
+A commit in Git is a snapshot of the changes made to files in a repository. When you commit, Git records the current state of the repository, allowing you to track changes over time. Each commit has a unique identifier (a hash) and contains information such as:
+
+A message describing the changes made.
+Metadata like the author and date.
+A reference to the parent commit(s) (previous state).
+2. What is a branch in Git?
+A branch in Git represents an independent line of development. It allows you to work on different features or bug fixes separately without affecting the main codebase. The default branch is usually called main or master, but you can create new branches to isolate work. Each branch can have its own commits and changes, and later, branches can be merged into other branches.
+
+3. What is a pull request in GitHub?
+A pull request (PR) is a way to propose changes from one branch (typically from a fork or a feature branch) to another branch (usually the main branch) on GitHub. When you create a pull request, GitHub will compare the differences between the two branches and allow others to review, discuss, and potentially merge the changes into the target branch.
+
+4. How do you initialize a new Git repository?
+To initialize a new Git repository, follow these steps:
+
+Navigate to the project directory in the terminal.
+Run the following command:
+csharp
+Copy code
+git init
+This command creates a new .git directory, which contains all the configuration files for the repository. Your project is now a Git repository.
+5. How do you clone a repository from GitHub?
+To clone a repository from GitHub, follow these steps:
+
+Go to the GitHub repository page.
+Click on the "Code" button and copy the URL (either HTTPS or SSH).
+In your terminal, run the following command:
+bash
+Copy code
+git clone <repository-url>
+For example:
+git clone https://github.com/username/repository.git
+This will create a local copy of the repository on your machine.
+6. How do you stage changes for a commit?
+To stage changes for a commit, follow these steps:
+
+Use git add to add changes to the staging area.
+To stage a specific file:
+git add <file-name>
+To stage all modified files:
+git add .
+After staging, the files are ready to be committed. You can check the status of the files with:
+
+
+git status
+7. How do you push changes to a remote repository?
+To push changes to a remote repository, follow these steps:
+
+After committing your changes locally, use the following command to push them:
+git push <remote-name> <branch-name>
+<remote-name> is typically origin, which refers to the remote repository.
+<branch-name> is the name of the branch you are pushing to (e.g., main).
+Example:
+Copy code
+git push origin main
+This command uploads your local commits to the remote repository, making your changes available to others.
+
+
+
+
+
+
+
