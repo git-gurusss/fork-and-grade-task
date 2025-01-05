@@ -1,3 +1,23 @@
+
+What is a commit in Git?
+Answer: A commit in Git is a snapshot of your repository at a specific point in time. It records changes made to the files and includes a unique ID, a commit message, and metadata such as the author and timestamp.
+  What is a branch in Git?
+Answer: A branch in Git is a lightweight pointer to a commit. It allows you to create a separate line of development, enabling you to work on features, bug fixes, or experiments in isolation from the main codebase.
+ What is a pull request in GitHub?
+Answer: A pull request in GitHub is a request to merge changes from one branch or fork into another branch or repository. It allows for code review, discussion, and collaboration before the changes are integrated.
+ How do you initialize a new Git repository?
+Answer: To initialize a new Git repository, navigate to your project directory and run the command:
+git init
+How do you clone a repository from GitHub?
+Answer: To clone a repository from GitHub, use the git clone command followed by the repository URL:
+git clone https://github.com/username/repository.git
+ How do you stage changes for a commit?
+Answer: To stage changes for a commit, use the git add command followed by the file name or a period (.) to stage all changes:
+git add <file-name>
+How do you push changes to a remote repository?
+Answer: To push changes to a remote repository, use the git push command followed by the name of the remote and the branch:
+git push origin main
+=======
 A commit is a snapshot of changes in the repository.
 A branch is a separate line of development in the repository.
 A pull request is a request to merge changes from one branch to another.
