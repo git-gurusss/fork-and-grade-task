@@ -15,25 +15,64 @@ jobs:
     - name: Install jq
       run: sudo apt-get install -y jq
 
-    - name: Validate Solution
-      env:
-        EXPECTED_ANSWERS: ${{ secrets.EXPECTED_ANSWERS }}
+    - name: List Files in Repository
+      run: ls -R
+
+    - name: Debug - Display solution.txt Content
       run: |
-        if [ ! -f "solution.txt" ]; then
-          echo "❌ Missing solution file!" && exit 1
+        if [ -f "solution.txt" ]; then
+          echo "📄 Content of solution.txt:"
+          cat solution.txt
+        else
+          echo "❌ solution.txt file not found!"
+          exit 1
         fi
 
-        # Read expected answers from secret
-        expected_answers=$(echo $EXPECTED_ANSWERS | jq -r '.[]')
+    - name: Validate Solution
+      run: |
+        # Ensure solution.txt exists
+        if [ ! -f "solution.txt" ]; then
+          echo "❌ Missing solution.txt in the root directory!"
+          exit 1
+        fi
+
+        # Define expected answers directly in the script
+        expected_answers=(
+          "A commit is a snapshot of changes in the repository."
+          "A branch is a separate line of development in the repository."
+          "A pull request is a request to merge changes from one branch to another."
+          "You initialize a new Git repository with 'git init'."
+          "You clone a repository from GitHub with 'git clone <repository_url>'."
+          "You stage changes for a commit with 'git add <file>'."
+          "You push changes to a remote repository with 'git push'."
+        )
 
         # Read answers from solution.txt
         IFS=$'\n' read -d '' -r -a answers < solution.txt
 
+        # Ensure the number of answers matches
+        expected_count=${#expected_answers[@]}
+        actual_count=${#answers[@]}
+
+        if [ "$expected_count" -ne "$actual_count" ]; then
+          echo "❌ Mismatch in the number of answers!"
+          echo "Expected: $expected_count"
+          echo "Found: $actual_count"
+          exit 1
+        fi
+
         # Validate answers
         index=0
-        for expected_answer in $expected_answers; do
-          if [[ "${answers[$index]}" != *"$expected_answer"* ]]; then
-            echo "❌ Incorrect answer for question $((index+1))!" && exit 1
+        for expected_answer in "${expected_answers[@]}"; do
+          # Normalize strings (remove extra spaces, convert to lowercase for comparison)
+          normalized_expected=$(echo "$expected_answer" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
+          normalized_actual=$(echo "${answers[$index]}" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
+
+          if [[ "$normalized_actual" != *"$normalized_expected"* ]]; then
+            echo "❌ Incorrect answer for question $((index+1))!"
+            echo "Expected: $expected_answer"
+            echo "Found: ${answers[$index]}"
+            exit 1
           fi
           index=$((index+1))
         done
