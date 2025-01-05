@@ -9,15 +9,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout the repository
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    # Step 2: Install jq for JSON processing
+    - name: Install jq
+      run: sudo apt-get install -y jq
+
+    # Step 3: Debug - List all files in the repository
+    - name: List Files in Repository
+      run: ls -R
+
+    # Step 4: Validate the solution file
     - name: Validate Solution
+      env:
+        EXPECTED_ANSWERS: ${{ secrets.EXPECTED_ANSWERS }}
       run: |
+        # Ensure solution.txt exists in the root directory
         if [ ! -f "solution.txt" ]; then
-          echo "❌ Missing solution file!" && exit 1
+          echo "❌ Missing solution.txt in the root directory!"
+          echo "Please ensure the file is named correctly and placed at the top level of your repository." && exit 1
         fi
-        if ! grep -q "Answer" solution.txt; then
-          echo "❌ No answer found in solution file!" && exit 1
-        fi
-        echo "✅ Solution file looks good!"
+
+        # Read expected answers from secret
+        expected_answers=$(echo $EXPECTED_ANSWERS | jq -r '.[]')
+
+        # Read answers from solution.txt
+        IFS=$'\n' read -d '' -r -a answers < solution.txt
+
+        # Validate answers
+        index=0
+        for expected_answer in $expected_answers; do
+          if [[ "${answers[$index]}" != *"$expected_answer"* ]]; then
+            echo "❌ Incorrect answer for question $((index+1))!"
+            echo "Expected: $expected_answer"
+            echo "Found: ${answers[$index]}" && exit 1
+          fi
+          index=$((index+1))
+        done
+
+        echo "✅ All answers are correct!"
