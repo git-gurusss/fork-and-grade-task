@@ -1,0 +1,14 @@
+1. A commit is a snapshot of changes in a repository. They are created to capture the state of a project at a point in time.
+
+2. A branch in git is an independent line of development. It is version of a repository and allows collaborators to work on changes independently. 
+
+3. A pull request in GitHub could be defined as a proposal or request to merge changes from one branch into another. 
+
+4. git init
+
+5. git clone <the url of the repository to be cloned>
+
+6. git add . (to stage all changes)
+   git add <file name>  (to stage a particular file)
+
+7. git push origin <branch name>
