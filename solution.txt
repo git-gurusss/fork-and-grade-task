@@ -1,3 +1,4 @@
+
 What is a commit in Git?
 Answer: A commit in Git is a snapshot of your repository at a specific point in time. It records changes made to the files and includes a unique ID, a commit message, and metadata such as the author and timestamp.
   What is a branch in Git?
@@ -16,4 +17,13 @@ git add <file-name>
 How do you push changes to a remote repository?
 Answer: To push changes to a remote repository, use the git push command followed by the name of the remote and the branch:
 git push origin main
+
+
+1. A commit is a snapshot of changes in the repository.
+2. A branch is a separate line of development in the repository.
+3. A pull request is a request to merge changes from one branch to another.
+4. You initialize a new Git repository with 'git init'.
+5. You clone a repository from GitHub with 'git clone <repository_url>'.
+6. You stage changes for a commit with 'git add <file>'.
+7. You push changes to a remote repository with 'git push'.
 
