@@ -1,0 +1,7 @@
+1. Commits in Git are snapshots of the files being tracked within a project folder.
+2. A branch in Git is a pointer in the project that points to a specific commit.
+3. A pull request the developor a summary of the changes to the repository before they merge it.
+4. with the "git init" command
+5. with the "git clone <url of the repository>" command
+6. with the "git add ." command to stage all files or the "git add <filename>" to stage a specific file only
+7. with the "git push" command
