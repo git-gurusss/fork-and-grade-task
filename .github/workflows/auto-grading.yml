@@ -37,21 +37,37 @@ jobs:
       env:
         EXPECTED_ANSWERS: ${{ secrets.EXPECTED_ANSWERS }}
       run: |
+        # Ensure solution.txt exists
         if [ ! -f "solution.txt" ]; then
           echo "❌ Missing solution.txt in the root directory!"
           exit 1
         fi
 
         # Read expected answers from secret
-        expected_answers=$(echo $EXPECTED_ANSWERS | jq -r '.[]')
+        expected_answers=$(echo "$EXPECTED_ANSWERS" | jq -r '.[]')
 
         # Read answers from solution.txt
         IFS=$'\n' read -d '' -r -a answers < solution.txt
 
+        # Ensure the number of answers matches
+        expected_count=$(echo "$expected_answers" | wc -l)
+        actual_count=${#answers[@]}
+
+        if [ "$expected_count" -ne "$actual_count" ]; then
+          echo "❌ Mismatch in the number of answers!"
+          echo "Expected: $expected_count"
+          echo "Found: $actual_count"
+          exit 1
+        fi
+
         # Validate answers
         index=0
         for expected_answer in $expected_answers; do
-          if [[ "${answers[$index]}" != *"$expected_answer"* ]]; then
+          # Normalize strings (remove extra spaces, convert to lowercase for comparison)
+          normalized_expected=$(echo "$expected_answer" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
+          normalized_actual=$(echo "${answers[$index]}" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
+
+          if [[ "$normalized_actual" != *"$normalized_expected"* ]]; then
             echo "❌ Incorrect answer for question $((index+1))!"
             echo "Expected: $expected_answer"
             echo "Found: ${answers[$index]}"
