@@ -1,7 +1,7 @@
-1. A commit is a snapshot of changes in the repository.
-2. A branch is a separate line of development in the repository.
-3. A pull request is a request to merge changes from one branch to another.
-4. You initialize a new Git repository with 'git init'.
-5. You clone a repository from GitHub with 'git clone <repository_url>'.
-6. You stage changes for a commit with 'git add <file>'.
-7. You push changes to a remote repository with 'git push'.
+1.A commit is like a snapshot of the current status or condition of a repsository at a specific point in time.
+2.A branch is like a separate path within your project that allows you to work on changes without affecting the main codebase.
+3.A pull request is used to propose changes form one branch to another, typically from a feature branch to a main branch.
+4.You can initialise a new repository by running the command "git init".
+5.You can clone the repository by using the command "git clone <url of git repository".
+6.You can stage changes for a commit by either uing "git add . (to stage all changes)" or "git add <file name> (to stage individual changes)".
+7.You can push changes to a remote repository by using "git push origin <branch-name>" or "git push".
